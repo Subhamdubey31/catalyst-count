@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Builder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container mt-5 pt-5">
+        <h2><b>Query Builder</b></h2>
+        <form method="post" action="{% url 'query_builder' %}">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputField1" name="field1" placeholder="Keyword">
+                </div>
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField2" name="field2">
+                        <option value="" selected disabled hidden>Year Founded</option>
+                        <option value="2020">2022</option>
+                        <option value="2021">2023</option>
+                        <option value="2022">2024</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField8" name="field8">
+                        <option value="" selected disabled hidden>Industry</option>
+                        <option value="IT">IT</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Healthcare">Healthcare</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField8" name="field8">
+                        <option value="" selected disabled hidden>City</option>
+                        <option value="New York">Mumbai</option>
+                        <option value="Los Angeles">Banglore</option>
+                        <option value="Chicago">Sarojninagar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField8" name="field8">
+                        <option value="" selected disabled hidden>State</option>
+                        <option value="California">Maharastra</option>
+                        <option value="Texas">Karnatka</option>
+                        <option value="Florida">Delhi</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField8" name="field8">
+                        <option value="" selected disabled hidden>Country</option>
+                        <option value="USA">India</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">USA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField8" name="field8">
+                        <option value="" selected disabled hidden>Employee(Form)</option>
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <select class="form-control" id="inputField8" name="field8">
+                        <option value="" selected disabled hidden>Employee(To)</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary">Result</button>
+                </div>
+                <div class="form-group col-md-6">
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

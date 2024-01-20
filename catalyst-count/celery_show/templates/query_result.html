@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <h1>Query Results</h1>
+
+    {% if results %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Domain</th>
+                    <th>Year Founded</th>
+                    <th>Industry</th>
+                    <th>Size Range</th>
+                    <th>Locality</th>
+                    <th>Country</th>
+                    <th>LinkedIn URL</th>
+                    <th>Current Employee Estimate</th>
+                    <th>Total Employee Estimate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                    <tr>
+                        <td>{{ result.id }}</td>
+                        <td>{{ result.name }}</td>
+                        <td>{{ result.domain }}</td>
+                        <td>{{ result.year_founded }}</td>
+                        <td>{{ result.industry }}</td>
+                        <td>{{ result.size_range }}</td>
+                        <td>{{ result.locality }}</td>
+                        <td>{{ result.country }}</td>
+                        <td>{{ result.linkedin_url }}</td>
+                        <td>{{ result.current_employee_estimate }}</td>
+                        <td>{{ result.total_employee_estimate }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No matching results found.</p>
+    {% endif %}
+
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .add-user-buttons {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .add-user-button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bold-close-button {
+            background-color: white;
+            color: black;
+            padding: 15px; /* Increased size */
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+
+        .add-user-buttons button {
+            margin-right: 10px;
+        }
+
+        /* Additional styles for spacing */
+        h2 {
+            margin-left: 30px; /* Adjust the margin as needed */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <h2>Users Profile</h2>
+
+    <div class="add-user-buttons">
+        <button class="add-user-button" onclick="redirectToAddUser()">Add User</button>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                <span class="close-alert" onclick="closeAlert(this)">&#215;</span>   
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Name Sign</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_data in users_data %}
+                <tr>
+                    <td>{{ user_data.user.username }}</td>
+                    <td>{{ user_data.user.email }}</td>
+                    <td>{{ user_data.status }}</td>
+                    <td>
+                        <button class="bold-close-button">&#215;</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        function redirectToAddUser() {
+            window.location.href = '{% url "add_user" %}';
+        }
+        function closeAlert(element) {
+            element.parentElement.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
